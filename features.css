@@ -7,7 +7,8 @@
 }
 
 .feature-intro h1 { margin-block: 18px 0; font-size: clamp(3.2rem, 6.75vw, 7rem); }
-.feature-intro .intro { padding-bottom: .32em; justify-self: end; }
+.feature-intro-copy { justify-self: end; }
+.feature-intro-copy .text-link { margin-top: 5px; }
 
 .practice-steps { margin-block: 0; padding: 0; }
 .practice-step {
@@ -59,8 +60,30 @@
 .demo-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 0 5px 4px; font-size: .59rem; text-align: center; }
 .demo-tabs span { padding: 2px; color: #d8e7d4; }
 .demo-tabs span:last-child { background: #deff78; color: var(--ink); border-radius: 4px; }
-.feature-end { margin-top: clamp(32px, 6vw, 83px); }
 .feature-actions .primary { margin: 0; }
+
+.feature-community {
+  margin-top: clamp(32px, 6vw, 83px);
+  padding-block: clamp(40px, 6vw, 86px);
+  background: #192720;
+  color: var(--paper);
+}
+
+.community-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .82fr);
+  gap: clamp(30px, 8vw, 112px);
+  align-items: center;
+}
+
+.community-copy .release-status { color: var(--ink); }
+.community-copy h2 { margin-block: 14px 24px; font-size: clamp(2.65rem, 4.85vw, 4.8rem); line-height: 1.1; font-weight: 870; letter-spacing: -.075em; word-break: keep-all; }
+.community-topic { padding-block: 14px 17px; border-top: 1px solid #5a6e5d; }
+.community-topic h3 { margin-bottom: 6px; font-size: clamp(1.19rem, 1.8vw, 1.55rem); font-weight: 780; letter-spacing: -.045em; }
+.community-topic p { max-width: 465px; color: #d8dfd1; line-height: 1.78; word-break: keep-all; }
+.community-photo .photo-window { aspect-ratio: 4 / 4.45; background: #50432f; }
+.community-photo .scene-photo { object-position: center 51%; }
+.community-photo figcaption > span { color: #c6d4c3; }
 
 @media (max-width: 760px) {
   .feature-intro { display: block; padding-block: 28px 33px; }
@@ -73,5 +96,7 @@
   .step-copy h2 { margin-block: 9px 7px; }
   .step-photo .photo-window { aspect-ratio: 6 / 5; }
   .compare-demo { right: 7px; bottom: 7px; }
+  .community-layout { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .community-copy h2 { margin-bottom: 17px; }
   .feature-end .launch-inner { flex-wrap: wrap; }
 }
