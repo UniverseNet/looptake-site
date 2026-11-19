@@ -8,7 +8,7 @@
 
 .feature-intro h1 { margin-block: 18px 0; font-size: clamp(3.2rem, 6.75vw, 7rem); }
 .feature-intro-copy { justify-self: end; }
-.feature-intro-copy .text-link { margin-top: 5px; }
+.feature-jumps { display: flex; flex-wrap: wrap; gap: 0 20px; margin-top: 7px; }
 
 .practice-steps { margin-block: 0; padding: 0; }
 .practice-step {
@@ -69,6 +69,7 @@
   color: var(--paper);
 }
 
+.feature-community:focus-visible { outline-color: var(--lime); }
 .community-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, .82fr);
@@ -86,8 +87,8 @@
 .community-photo figcaption > span { color: #c6d4c3; }
 
 @media (max-width: 760px) {
-  .feature-intro { display: block; padding-block: 28px 33px; }
-  .feature-intro .intro { margin-top: 14px; padding-bottom: 0; }
+  .feature-intro { display: block; padding-block: 23px 23px; }
+  .feature-intro .intro { margin-top: 12px; }
   .feature-intro h1 { font-size: clamp(3.05rem, 10.6vw, 4.5rem); }
   .practice-step { padding-block: 31px; }
   .practice-step, .step-reverse { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "photo"; gap: 15px; }
