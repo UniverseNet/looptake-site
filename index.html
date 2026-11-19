@@ -4,78 +4,104 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f2efe8">
   <meta name="description" content="LoopTake는 연습 영상을 기록하고 지난 테이크와 비교할 수 있도록 준비 중인 VERA Studio의 앱입니다.">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'">
   <title>LoopTake · 연습을 다음 테이크로</title>
   <link rel="icon" type="image/png" href="./assets/mark.png">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=studio">
+  <script src="./studio.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="LoopTake 홈">
-        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>LoopTake</span>
-      </a>
-      <nav aria-label="주 메뉴">
-        <a href="#about">앱 소개</a>
-        <a href="#launch">출시 안내</a>
-      </nav>
-    </div>
+  <header class="site-header shell">
+    <a class="brand" href="#top" aria-label="LoopTake 홈">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>LoopTake</span>
+    </a>
+    <nav aria-label="주 메뉴">
+      <a href="#about">앱 소개</a>
+      <a class="nav-launch" href="#launch">출시 안내 <span aria-hidden="true">↗</span></a>
+    </nav>
   </header>
 
   <main id="main" tabindex="-1">
-    <section class="wrap hero" aria-labelledby="hero-title">
+    <section class="hero shell" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">연습 영상 기록 앱</p>
-        <h1 id="hero-title">오늘의 연습을,<br><span>다음 테이크로.</span></h1>
-        <p class="intro">연주도, 노래도, 춤도. 연습 영상을 남기고 지난 테이크와 비교하며 달라진 점을 찾는 앱을 만들고 있어요.</p>
-        <a class="button" href="#about">LoopTake 알아보기 <span aria-hidden="true">↓</span></a>
+        <p class="status-chip"><span aria-hidden="true"></span>정식 출시 준비 중</p>
+        <h1 id="hero-title">한 번 더,<br><span>더 나은<br class="narrow-break"> 테이크.</span></h1>
+        <p class="intro">노래, 연주, 춤. 같은 구간을 다시 연습하고 지난 테이크와 비교하는 앱을 만들고 있어요.</p>
+        <a class="primary" href="#about">연습 흐름 보기 <span aria-hidden="true">↘</span></a>
       </div>
-      <figure class="hero-image">
-        <img src="./assets/practice-studio.webp" alt="연습실에서 어쿠스틱 기타를 연주하는 사람" width="960" height="1200" fetchpriority="high">
+      <figure class="demo" id="demo">
+        <div class="media-stage">
+          <div class="stage-side" aria-hidden="true">
+            <span class="stage-brand">LoopTake</span>
+            <span class="stage-axis"></span>
+            <span class="stage-cross">+</span>
+          </div>
+          <div class="media-frame">
+            <div class="media-deck">
+              <video id="demo-media" aria-label="연습 동작이 다른 두 테이크를 번갈아 보여주는 무음 데모" width="540" height="960" preload="none" poster="./assets/studio-poster.webp" data-src="./assets/studio-loop.mp4" muted loop playsinline></video>
+              <div class="media-controls">
+                <button id="demo-toggle" class="media-toggle" type="button" aria-controls="demo-media" aria-label="데모 재생" hidden>
+                  <span class="play-symbol" aria-hidden="true"></span>
+                </button>
+                <span id="demo-state" class="media-state">제품 데모</span>
+                <span class="audio-state">무음</span>
+              </div>
+              <p id="demo-status" class="media-status" role="status"></p>
+            </div>
+          </div>
+          <div class="stage-side stage-side-end" aria-hidden="true">
+            <span class="stage-cross">+</span>
+            <span class="stage-axis"></span>
+            <span class="stage-label">REPEAT<br>REVIEW</span>
+          </div>
+        </div>
+        <figcaption>제품 데모 연출 · 같은 구간을 두 테이크로 비교하는 장면</figcaption>
       </figure>
     </section>
 
-    <section id="about" class="wrap features" aria-labelledby="features-title">
-      <div class="section-intro">
-        <h2 id="features-title">한 테이크씩, 쌓이는 연습</h2>
-        <p>LoopTake가 준비 중인 연습 흐름이에요.</p>
+    <section id="about" class="workflow" aria-labelledby="features-title">
+      <div class="shell">
+        <div class="section-head" data-reveal>
+          <h2 id="features-title">한 테이크씩,<br>쌓이는 연습.</h2>
+          <p>다시 보고 싶은 순간을 남겨두세요. LoopTake가 준비 중인 연습 흐름입니다.</p>
+        </div>
+        <ul class="workflow-grid">
+          <li data-reveal>
+            <span class="feature-icon icon-record" aria-hidden="true"></span>
+            <h3>오늘의 테이크 남기기</h3>
+            <p>오늘 연습한 영상을 골라 기록하고 다음 연습 때 다시 살펴보세요.</p>
+          </li>
+          <li data-reveal>
+            <span class="feature-icon icon-compare" aria-hidden="true"></span>
+            <h3>두 테이크 비교하기</h3>
+            <p>같은 구간을 번갈아 보며 박자나 동작이 어떻게 달라졌는지 살펴보세요.</p>
+          </li>
+          <li data-reveal>
+            <span class="feature-icon icon-review" aria-hidden="true"></span>
+            <h3>지나온 연습 돌아보기</h3>
+            <p>쌓아 둔 연습 기록에서 다음에 연습할 부분을 찾아보세요.</p>
+          </li>
+        </ul>
       </div>
-      <ul class="feature-grid">
-        <li>
-          <span class="feature-icon icon-record" aria-hidden="true"></span>
-          <h3>오늘의 테이크 남기기</h3>
-          <p>오늘 연습한 영상을 골라 기록하고, 다음 연습 때 다시 살펴보세요.</p>
-        </li>
-        <li>
-          <span class="feature-icon icon-compare" aria-hidden="true"></span>
-          <h3>두 테이크 비교하기</h3>
-          <p>같은 구간의 두 영상을 번갈아 보며 박자나 동작이 어떻게 달라졌는지 확인해 보세요.</p>
-        </li>
-        <li>
-          <span class="feature-icon icon-review" aria-hidden="true"></span>
-          <h3>지나온 연습 돌아보기</h3>
-          <p>쌓아 둔 연습 기록을 다시 보고, 다음에 연습할 부분을 찾아보세요.</p>
-        </li>
-      </ul>
     </section>
 
-    <section id="launch" class="wrap launch" aria-labelledby="launch-title">
-      <div class="launch-panel">
+    <section id="launch" class="launch shell" aria-labelledby="launch-title">
+      <div class="launch-panel" data-reveal>
         <div>
-          <p class="launch-label">출시 안내</p>
           <h2 id="launch-title">정식 출시 준비 중</h2>
-          <p>연습 기록과 영상 비교를 더 편하게 쓸 수 있도록 다듬고 있어요.</p>
+          <p>연습 기록과 영상 비교를 다듬고 있어요.</p>
         </div>
         <span class="brand-mark launch-mark" aria-hidden="true"><i></i><i></i><i></i></span>
       </div>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <p><strong>LoopTake</strong><span>by VERA Studio</span></p>
+  <footer class="shell footer">
+    <p><strong>LoopTake</strong> <span>by VERA Studio</span></p>
     <a href="#top">맨 위로 <span aria-hidden="true">↑</span></a>
   </footer>
 </body>
