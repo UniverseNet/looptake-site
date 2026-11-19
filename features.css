@@ -1,0 +1,77 @@
+.feature-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: end;
+  padding-block: clamp(36px, 5.85vw, 84px) clamp(27px, 4.65vw, 65px);
+}
+
+.feature-intro h1 { margin-block: 18px 0; font-size: clamp(3.2rem, 6.75vw, 7rem); }
+.feature-intro .intro { padding-bottom: .32em; justify-self: end; }
+
+.practice-steps { margin-block: 0; padding: 0; }
+.practice-step {
+  display: grid;
+  grid-template-columns: minmax(0, .76fr) minmax(0, 1fr);
+  grid-template-areas: "copy photo";
+  gap: clamp(24px, 5.25vw, 86px);
+  align-items: center;
+  padding-block: clamp(30px, 4.3vw, 64px);
+  border-top: 1px solid var(--rule);
+}
+
+.practice-step:last-child { border-bottom: 1px solid var(--rule); }
+.practice-step::marker { content: ""; }
+.step-reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, .76fr);
+  grid-template-areas: "photo copy";
+}
+
+.step-copy { grid-area: copy; padding-inline: clamp(0px, 1.25vw, 20px); }
+.step-copy h2 { margin-block: 12px; font-weight: 870; letter-spacing: -.075em; line-height: 1.08; font-size: clamp(2.6rem, 4.4vw, 4.95rem); word-break: keep-all; }
+.step-copy p { max-width: 375px; color: var(--muted); font-size: clamp(1rem, 1.22vw, 1.16rem); line-height: 1.78; word-break: keep-all; }
+.step-number {
+  display: inline-grid;
+  width: 48px;
+  aspect-ratio: 1;
+  place-items: center;
+  color: var(--ink);
+  background: #e3ebd2;
+  border: 1px solid #94a585;
+  border-radius: 50%;
+  font-family: system-ui, sans-serif;
+  font-size: .85rem;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.step-photo { grid-area: photo; min-width: 0; }
+.step-photo .photo-window { aspect-ratio: 7 / 5; }
+.step-photo[data-scene="dance"] .photo-window { background: #223c40; }
+.step-photo[data-scene="dance"] .scene-photo { object-position: 50% 23%; }
+.step-photo[data-scene="friends"] .photo-window { background: #50432f; }
+.step-photo[data-scene="friends"] .scene-photo { object-position: 50% 51%; }
+.step-photo[data-scene="guitar"] .photo-window { background: #574338; }
+.step-photo[data-scene="guitar"] .scene-photo { object-position: 50% 15%; }
+
+.feature-art { position: relative; }
+.compare-demo { right: 12px; bottom: 12px; }
+.demo-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 0 5px 4px; font-size: .59rem; text-align: center; }
+.demo-tabs span { padding: 2px; color: #d8e7d4; }
+.demo-tabs span:last-child { background: #deff78; color: var(--ink); border-radius: 4px; }
+.feature-end { margin-top: clamp(32px, 6vw, 83px); }
+.feature-actions .primary { margin: 0; }
+
+@media (max-width: 760px) {
+  .feature-intro { display: block; padding-block: 28px 33px; }
+  .feature-intro .intro { margin-top: 14px; padding-bottom: 0; }
+  .feature-intro h1 { font-size: clamp(3.05rem, 10.6vw, 4.5rem); }
+  .practice-step { padding-block: 31px; }
+  .practice-step, .step-reverse { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "photo"; gap: 15px; }
+  .step-copy { padding-inline: 0; }
+  .step-number { width: 38px; }
+  .step-copy h2 { margin-block: 9px 7px; }
+  .step-photo .photo-window { aspect-ratio: 6 / 5; }
+  .compare-demo { right: 7px; bottom: 7px; }
+  .feature-end .launch-inner { flex-wrap: wrap; }
+}
